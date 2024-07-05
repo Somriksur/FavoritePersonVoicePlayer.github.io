@@ -1,3 +1,13 @@
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+            console.log('Service Worker registered with scope:', registration.scope);
+        }).catch(function(error) {
+            console.log('Service Worker registration failed:', error);
+        });
+}
+
 document.getElementById('single-loop').addEventListener('click', function() {
     let audios = document.querySelectorAll('audio');
     audios.forEach(audio => {
@@ -65,3 +75,32 @@ document.addEventListener('visibilitychange', function() {
         });
     }
 });
+
+// Media Session API
+if ('mediaSession' in navigator) {
+    navigator.mediaSession.setActionHandler('play', function() {
+        let playingAudio = document.querySelector('audio:not([paused])');
+        if (playingAudio) {
+            playingAudio.play();
+        }
+    });
+
+    navigator.mediaSession.setActionHandler('pause', function() {
+        let playingAudio = document.querySelector('audio:not([paused])');
+        if (playingAudio) {
+            playingAudio.pause();
+        }
+    });
+}
+self.addEventListener('install', function(event) {
+    console.log('Service Worker installing.');
+});
+
+self.addEventListener('activate', function(event) {
+    console.log('Service Worker activating.');
+});
+
+self.addEventListener('fetch', function(event) {
+    console.log('Fetching:', event.request.url);
+});
+
