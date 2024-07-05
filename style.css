@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.player {
+    background-color: rgba(247, 6, 6, 0.8); /* Semi-transparent red background */
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0px 70px rgb(42, 252, 0);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    overflow-y: auto;
+    max-height: 80vh;
+    box-sizing: border-box;
+    background-image: url('Mouri.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: fadeIn 1s ease-in-out; /* Added animation */
+}
+
+.footer {
+    position: relative;
+    bottom: 5px;
+    right: 1px;
+    font-size: 18px;
+    color: #f90202;
+    opacity: 0.9;
+    background-color: rgb(255, 234, 0); /* Semi-transparent white background */
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+    opacity: 0.9;
+    background: linear-gradient(135deg, #f63606, #f4b27f); /* Gradient background for buttons */
+    color: white;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+}
+
+button.active {
+    background: linear-gradient(135deg, #0476f0, #6ec1e4);
+}
+
+button.inactive {
+    background: linear-gradient(135deg, #f62408, #f78d69);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    opacity: 1; /* Increase opacity on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
+}
+
+.audio-container {
+    margin-top: 20px;
+}
+
+audio {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(241, 31, 3, 0.967);
+    opacity: 0.7;
+    transition: opacity 0.3s; /* Smooth transition for opacity */
+}
+
+audio:hover {
+    opacity: 100; /* Increase opacity on hover */
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #01e5fa;
+    border-radius: 7%;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #112bec;
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0476f0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .player {
+        padding: 30px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .player {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    audio {
+        width: 100%;
+    }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
